@@ -52,7 +52,7 @@ def get_cifar100_datasets(data_dir='./data'):
 
 
 # ========================================
-# 2. 模型定义（使用ResNet-18）
+# 2. 模型定义（使用ResNet-50）
 # ========================================
 class ConformalModel(nn.Module):
     """带保形分数计算的模型包装器"""
@@ -65,13 +65,6 @@ class ConformalModel(nn.Module):
     def forward(self, x):
         return self.backbone(x)
 
-    def get_scores(self, x, y):
-        """计算保形分数 s(x,y) = 1 - softmax概率"""
-        logits = self.forward(x)
-        probs = torch.softmax(logits, dim=1)
-        # 收集真实类别的概率
-        true_probs = probs[torch.arange(len(y)), y]
-        return 1 - true_probs  # 分数越高越异常
 
 
 # ========================================
@@ -331,4 +324,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
