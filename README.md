@@ -43,12 +43,4 @@ which will create a folder called `data/` and download the data described in the
 1. `places365` (0.54 GB): `(183996, 365)` array of softmax scores and `(183996,)` array of labels
 1. `inaturalist` (6.72 GB): `(1324900, 633)` array of softmax scores and `(1324900,)` array of labels
 
-The code for training models on the raw datasets to produce the softmax scores is located in `generate_scores/`
 
-## Running Clustered Conformal
-
-See `example.ipynb` for an example of how to run clustered conformal prediction. 
-
-## Reproducing our experiments
-
-Run `sh run_experiments.sh` to run our main set of experiments. Run `sh run_heatmap_experiments.sh` for experiments that test the sensitivity of clustered conformal to the hyperparameter values. To view the main results, run `jupyter notebook` from Terminal, then run the notebooks in the `notebooks/` directory.
